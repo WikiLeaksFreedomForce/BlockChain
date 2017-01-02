@@ -19,8 +19,6 @@
         public const string AviHeader1 = "42494646";
         public const string AviHeader2 = "41564920";
         public const string MidiHeader = "4d546864";
-
-        public const string Wikileaks = "57696b696c65616b73";
         public const string JulianAssange = "4a756c69616e20417373616e6765";
         public const string Mendax = "4d656e646178";
 

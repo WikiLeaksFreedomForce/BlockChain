@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Cryptography;
 using BlockChain.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -29,6 +30,5 @@ namespace BlockChain.Test {
 
             // D23448BD
         }
-
     }
 }

@@ -20,6 +20,10 @@ namespace BlockChain {
 
         public override string ToString() {
 
+            if (TxOut != null){
+                return $"TxIn: {TxOut.Script.Address}";
+            }
+
             if (Sequence == 0xFFFFFFFF)
                 return "TxIn: (none)";
 

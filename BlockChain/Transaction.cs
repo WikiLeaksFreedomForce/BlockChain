@@ -52,17 +52,6 @@ namespace BlockChain
             return TransactionHash.ToString();
         }
 
-        public byte[] GetFileBytes(){
-
-            var data = new List<byte>();
-
-            foreach (var txOut in Outs) {
-                data.AddRange(txOut.Script.Inner);
-            }
-
-            return data.ToArray();
-        }
-
         public byte[] GetSatoshiUploadedBytes(){
 
             var data = new List<byte>();
@@ -96,6 +85,17 @@ namespace BlockChain
             }
 
             return data.GetRange(8, length).ToArray();
+        }
+
+        public byte[] DownloadTxInputFile(){
+
+            var data = new List<byte>();
+
+            foreach (var txIn in Ins) {
+                data.AddRange(txIn.Script.Inner);
+            }
+
+            return data.ToArray();
         }
     }
 }

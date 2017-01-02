@@ -33,7 +33,7 @@ namespace BlockChain.WPF.Services {
                     continue;
                 }
 
-                Blocks.Clear();
+                Blocks.ClearAll();
                 await Blocks.Add(fileName);
                 Blocks.JoinInsAndOuts();
 

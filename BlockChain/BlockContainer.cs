@@ -9,7 +9,11 @@ namespace BlockChain {
 
     public class BlockContainer : List<Block>{
 
-        public Dictionary<string, Transaction> TransactionList { get; private set; }
+        public BlockContainer(){
+            TransactionList = new Dictionary<string, Transaction>();
+        }
+
+        public Dictionary<string, Transaction> TransactionList { get; }
 
         public async Task Add(string file){
 
@@ -33,13 +37,23 @@ namespace BlockChain {
 
             // Build a list of transactions
 
-            TransactionList = new Dictionary<string, Transaction>();
-
             foreach (var block in this){
                 foreach (var transaction in block.Transactions){
                     TransactionList.Add(transaction.ToString(), transaction);
                 }
             }
+        }
+
+        public void ClearAll(){
+            Clear();
+            TransactionList?.Clear();
+        }
+
+        public void Add(Transaction transaction){
+            if (transaction == null)
+                return;
+
+            TransactionList.Add(transaction.ToString(), transaction);
         }
 
         public void JoinInsAndOuts() { 
@@ -175,7 +189,7 @@ namespace BlockChain {
         public FileData GetFile(string txId){
             var transaction = this[txId];
 
-            var bytes = transaction.GetFileBytes();
+            var bytes = transaction.Outs.GetFileBytes();
 
             return new FileData(bytes);
         }
@@ -191,7 +205,7 @@ namespace BlockChain {
 
                 var transaction = this[node];
 
-                var bytes = transaction.GetFileBytes();
+                var bytes = transaction.Outs.GetFileBytes();
 
                 data.AddRange(bytes);
             }
@@ -216,6 +230,22 @@ namespace BlockChain {
                 if (bytes.Length < 20000)
                     break;
             }
+
+            return new FileData(data.ToArray());
+        }
+
+        public FileData DownloadTxInputFile(string tx) {
+
+            var data = new List<byte>();
+
+            var transaction = this[tx];
+
+            if (transaction == null)
+                return null;
+
+            var bytes = transaction.DownloadTxInputFile();
+
+            data.AddRange(bytes);
 
             return new FileData(data.ToArray());
         }

@@ -3,9 +3,9 @@ using BlockChain.WPF.Messaging;
 using BlockChain.WPF.Properties;
 
 namespace BlockChain.WPF.Services {
-    public class DownloadSatoshi{
+    public class DownloadTxInputFile {
 
-        public DownloadSatoshi(BlockContainer block, MessageCollection messages){
+        public DownloadTxInputFile(BlockContainer block, MessageCollection messages){
             _block = block;
             _messages = messages;
         }
@@ -17,7 +17,7 @@ namespace BlockChain.WPF.Services {
 
             txId = txId.Trim(' ', '\r', '\n');
 
-            var fileData = _block.GetSatoshiUploadedFile(txId);
+            var fileData = _block.DownloadTxInputFile(txId);
 
             if (fileData == null) {
                 throw new InvalidDataException($"The transaction ID {txId} was not found");

@@ -142,5 +142,17 @@ namespace BlockChain.WPF.Properties {
                 this["TxId"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ByteText {
+            get {
+                return ((string)(this["ByteText"]));
+            }
+            set {
+                this["ByteText"] = value;
+            }
+        }
     }
 }

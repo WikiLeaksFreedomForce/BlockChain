@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 
 namespace BlockChain.Extensions {
@@ -35,7 +36,7 @@ namespace BlockChain.Extensions {
 
             return sb.ToString(); // returns: "48656C6C6F20776F726C64" for "Hello world"
         }
-
+        /*
         public static byte[] ToByteArray(this string hexString) {
             var bytes = new byte[hexString.Length / 2];
 
@@ -44,6 +45,13 @@ namespace BlockChain.Extensions {
             }
 
             return bytes;
+        }
+        */
+        public static byte[] ToByteArray(this string hex) {
+            return Enumerable.Range(0, hex.Length)
+                             .Where(x => x % 2 == 0)
+                             .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                             .ToArray();
         }
     }
 }

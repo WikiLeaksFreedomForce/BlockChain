@@ -30,7 +30,7 @@ namespace BlockChain.WPF.Services {
                     continue;
                 }
 
-                Blocks.Clear();
+                Blocks.ClearAll();
                 await Blocks.Add(fileName);
 
                 foreach (var block in Blocks) {

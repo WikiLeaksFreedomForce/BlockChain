@@ -18,7 +18,8 @@ namespace BlockChain.Headers {
                 new Doc(),
                 new GZip(),
                 new Tar(),
-                new TarGz()
+                new TarGz(),
+                new Wikileaks()
             };
         }
 

@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,11 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AesKeyFind\Aes.cs" />
+    <Compile Include="AesKeyFind\AesKeyFind.cs" />
+    <Compile Include="AesKeyFind\Util.cs" />
     <Compile Include="Base58.cs" />
+    <Compile Include="Extensions\ScriptExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Headers\ExtensionFinder.cs" />
     <Compile Include="Headers\7z.cs" />
     <Compile Include="Headers\Doc.cs" />
     <Compile Include="Headers\GZip.cs" />
+    <Compile Include="Headers\Assange.cs" />
+    <Compile Include="Headers\Wikileaks.cs" />
     <Compile Include="Headers\Xls.cs" />
     <Compile Include="Headers\Jpg.cs" />
     <Compile Include="Headers\Pdf2.cs" />
@@ -94,6 +102,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation\note.txt" />
+    <Content Include="WikileakHashes\allripemd160.txt" />
+    <None Include="WikileakHashes\md5sums.json" />
+    <None Include="WikileakHashes\md5sumtorrents.json" />
+    <None Include="WikileakHashes\sha1sums.json" />
+    <None Include="WikileakHashes\sha1sumtorrents.json" />
+    <None Include="WikileakHashes\sha256sums.json" />
+    <None Include="WikileakHashes\sha256sumtorrents.json" />
+    <None Include="WikileakHashes\test.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

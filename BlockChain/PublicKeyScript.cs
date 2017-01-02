@@ -18,7 +18,7 @@ namespace BlockChain
             get {
                 var byteArray = new List<byte>();
 
-                if (Raw.IsOpDupCheckSig()){
+                if (Raw.IsStandardTransactionToBitcoinAddress()){
                     byteArray.Add(0x00);
                 }
                 else if (Raw.IsOpHashEqual()){

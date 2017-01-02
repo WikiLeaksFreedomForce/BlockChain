@@ -69,14 +69,19 @@
             <MenuItem Header="_Transaction">
                 <MenuItem Header="Read Transaction" Command="{Binding ReadTransaction}"/>
                 <MenuItem Header="Walk Addresses" Command="{Binding WalkAddresses}"/>
+                <MenuItem Header="Walk Up Entire Transaction" Command="{Binding WalkUpEntireTransaction}"/>
+                <MenuItem Header="Walk Down Entire Transaction" Command="{Binding WalkDownEntireTransaction}"/>
             </MenuItem>
 
             <MenuItem Header="_Search">
                 <MenuItem Header="Search For Transaction ID" Command="{Binding SearchForTransactionId}"/>
                 <MenuItem Header="Search For Known Extensions" Command="{Binding SearchForKnownExtensions}"/>
+                <MenuItem Header="Search for Byte Array" Command="{Binding SearchForByteArray}"/>
                 <MenuItem Header="Search For High Fees" Command="{Binding SearchForHighFees}"/>
                 <MenuItem Header="Search for Satoshi Uploads" Command="{Binding SearchSatoshiUploads}"/>
                 <MenuItem Header="Search for Hash160 (Zero)" Command="{Binding SearchHash160Zero}"/>
+                <MenuItem Header="Search for AES Keys" Command="{Binding SearchAesKeys}"/>
+                <MenuItem Header="Search for Wikileaks Hashes" Command="{Binding SearchWikileaksHashes}"/>
                 
             </MenuItem>
 
@@ -84,11 +89,13 @@
                 <MenuItem Header="Text Messages" Command="{Binding QueryTextMessages}"/>
                 <MenuItem Header="Excessive TxOuts" Command="{Binding QuerySeveralTxOutsFile}"/>
                 <MenuItem Header="Base64 Messages" Command="{Binding QueryBase64}"/>
+                <MenuItem Header="Wikileaks Hash Account" Command="{Binding WalkHashTable}"/>
             </MenuItem>
 
             <MenuItem Header="_Download">
                 <MenuItem Header="Download File" Command="{Binding DownloadFile}"/>
                 <MenuItem Header="Download Satoshi Uploaded File" Command="{Binding DownloadSatoshiUploadedFile}"/>
+                <MenuItem Header="Download TxInput File" Command="{Binding DownloadTxInputFile}"/>
             </MenuItem>
         </Menu>
 

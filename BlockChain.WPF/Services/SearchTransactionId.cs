@@ -32,7 +32,7 @@ namespace BlockChain.WPF.Services {
                     continue;
                 }
 
-                Blocks.Clear();
+                Blocks.ClearAll();
                 await Blocks.Add(fileName);
 
                 if (Blocks[txId] != null) {

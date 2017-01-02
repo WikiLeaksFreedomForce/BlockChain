@@ -35,7 +35,7 @@ namespace BlockChain.WPF.Services {
                     continue;
                 }
 
-                Blocks.Clear();
+                Blocks.ClearAll();
                 await Blocks.Add(fileName);
 
                 foreach (var block in Blocks) {
@@ -56,7 +56,7 @@ namespace BlockChain.WPF.Services {
                             case "gif":
                             case "jpg":
                             case "png":
-                                var data = transaction.GetFileBytes();
+                                var data = transaction.Outs.GetFileBytes();
 
                                 try{
                                     var imageSource = GetImageSource(data);

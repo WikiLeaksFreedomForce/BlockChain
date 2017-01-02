@@ -48,6 +48,14 @@
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Info.Blockchain.API, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BlockchainAPI.2.0.0\lib\portable-net45+win+wpa81\Info.Blockchain.API.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -73,6 +81,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\WikileaksHash.cs" />
+    <Compile Include="Dialogs\ByteArrayDialog.xaml.cs">
+      <DependentUpon>ByteArrayDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\SearchTransaction.xaml.cs">
       <DependentUpon>SearchTransaction.xaml</DependentUpon>
     </Compile>
@@ -88,9 +100,16 @@
     <Compile Include="Extensions\SetBindingExtension.cs" />
     <Compile Include="Messaging\MessageCollection.cs" />
     <Compile Include="Messaging\MessageType.cs" />
+    <Compile Include="Services\DownloadTxInputFile.cs" />
     <Compile Include="Services\OpenFiles.cs" />
+    <Compile Include="Services\QueryAesKeys.cs" />
     <Compile Include="Services\QuerySeveralTxOuts.cs" />
     <Compile Include="Services\QueryBase64Messages.cs" />
+    <Compile Include="Services\SearchByteArray.cs" />
+    <Compile Include="Services\SearchWikileakHashes.cs" />
+    <Compile Include="Services\WalkHashTable.cs" />
+    <Compile Include="Services\WalkDownEntireTransaction.cs" />
+    <Compile Include="Services\WalkUpEntireTransaction.cs" />
     <Compile Include="Services\SearchHash160Zero.cs" />
     <Compile Include="Services\QueryTextMessages.cs" />
     <Compile Include="Services\WalkAddress.cs" />
@@ -103,10 +122,15 @@
     <Compile Include="Services\KnownExtensions.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Messaging\Message.cs" />
+    <Compile Include="ViewModels\SearchByteArrayViewModel.cs" />
     <Compile Include="ViewModels\SearchTransactionViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\OpenBlocksViewModel.cs" />
     <Compile Include="ViewModels\OpenTransactionsViewModel.cs" />
+    <Page Include="Dialogs\ByteArrayDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Dialogs\SearchTransaction.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -155,6 +179,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Addresses\Block515.dat" />
+    <Compile Include="Data\Wikileaks.cs" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
